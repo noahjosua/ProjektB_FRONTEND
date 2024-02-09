@@ -1,0 +1,135 @@
+<section id="projects" class="projects">
+  <div>
+    <!-- Section Title and "New" Button (visible only when authenticated) -->
+    <h1>Projekte</h1>
+    <p-button *ngIf="isAuthenticated" label="Neu" icon="pi pi-plus" iconPos="right" styleClass="p-button-sm" (onClick)="createProject()"></p-button> 
+  </div>
+  <div class="projects-container">
+    <!-- Project Cards (Looping through projects) -->
+    <div class="project" *ngFor="let project of projects">
+        <h3>{{shortenString(project.title)}}</h3>
+        <p>{{shortenString(project.description)}}</p>
+        <p-button label="Mehr..." styleClass="p-button-sm" [routerLink]="['/details', project.id]"></p-button> 
+    </div>
+  </div>
+</section>
+
+<!-- New Project Dialog -->
+<p-dialog header="Neues Projekt anlegen" 
+          styleClass="p-fluid"
+          [style]="{width: '50vw'}"
+          [modal]="true"
+          [(visible)]="isCreating"
+          [closable]="false">
+          <ng-template pTemplate="content">
+            <div>
+              <!-- Project Title Input -->
+              <div class="container">
+                <label>Projekttitel</label>
+                <input pInputText 
+                          type="text" 
+                          maxlength="50"
+                          required 
+                          [(ngModel)]="newProject.title" 
+                          (input)="validateTitel()"/>
+              </div>
+              
+              <!-- Project Start Date Input -->
+              <div class="container">
+                <label>Beginn der Umsetzung</label>
+                <p-calendar appendTo="body" 
+                            view="month"
+                            dateFormat="mm/yy"
+                            [(ngModel)]="newProject.start"
+                            (onClose)="validateDate()">
+                </p-calendar>
+              </div>
+
+              <!-- Project End Date Input -->
+              <div class="container">
+                <label>Ende der Umsetzung</label>
+                <p-calendar appendTo="body" 
+                            view="month"
+                            dateFormat="mm/yy"
+                            [(ngModel)]="newProject.end"
+                            (onClose)="validateDate()">
+                </p-calendar>
+              </div>
+
+              <!-- Project Team Input -->
+              <div class="container">
+                <label>Team</label>
+                <p-chips  required 
+                          separator=","
+                          addOnTab="true"
+                          addOnBlur="true"
+                          [(ngModel)]="newProject.team"
+                          (onAdd)="validateTeam()"
+                          (onRemove)="validateTeam()">
+                </p-chips>
+              </div>
+
+              <!-- Project Tech Stack Input -->
+              <div class="container">
+                <label>Tech Stack</label>
+                <p-chips  required 
+                          separator=","
+                          addOnTab="true"
+                          addOnBlur="true"
+                          [(ngModel)]="newProject.techStack"
+                          (onAdd)="validateTechStack()"
+                          (onRemove)="validateTeam()">
+                </p-chips>
+              </div>
+
+              <!-- Project Repository URL Input -->
+              <div class="container">
+                <label>Repository URL</label>
+                <input pInputText 
+                          type="text" 
+                          placeholder="https://www.example.com"
+                          minlength=""
+                          maxlength="" 
+                          [(ngModel)]="newProject.repositoryUrl"
+                          (input)="validateRepositoryUrl()"/>
+              </div>
+
+              <!-- Project Description Input -->
+              <div class="container">
+                <label>Beschreibung des Projekts</label>
+                <p-editor [(ngModel)]="newProject.description" 
+                          [style]="{ height: '320px' }"
+                          [modules]="quillModules"
+                          (onTextChange)="validateDescription()">
+                </p-editor>
+              </div>
+
+              <!-- File Upload Component -->
+              <p-fileUpload 
+              (onUpload)="onUpload($event)"
+              name="images[]" 
+              [url]="uploadURL" 
+              [multiple]="true" 
+              accept="image/*" 
+              maxFileSize="1000000"
+              fileLimit="10">
+              <ng-template pTemplate="content">
+                <ul *ngIf="uploadedFiles.length">
+                    <li *ngFor="let file of uploadedFiles">{{ file.name }}</li>
+                </ul>
+              </ng-template>
+              </p-fileUpload>
+          
+            </div>
+
+            <!-- Save and Cancel Buttons -->
+            <div [ngClass]="{'vertical-layout': isSmallScreen, 'horizontal-layout': !isSmallScreen}">
+              <p-button label="Speichern" icon="pi pi-save" iconPos="right" 
+                        styleClass="p-button-sm" (click)="saveProject()" 
+                        [disabled]="!isValidTitle || !isValidStart || !isValidEnd
+                                    || !isValidTeam || !isValidTechStack || !isValidRepositoryUrl
+                                    || !isValidDescription"></p-button>
+              <p-button label="Abbrechen" icon="" iconPos="right" styleClass="p-button-sm" (click)="cancel()"></p-button>
+            </div>
+          </ng-template>
+</p-dialog>

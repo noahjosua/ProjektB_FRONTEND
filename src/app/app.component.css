@@ -1,0 +1,6 @@
+/* Override styles for all p-button components using ::ng-deep */
+::ng-deep .p-button {
+    background-color: var(--main-brand-color) !important;
+    color: var(--main-background-color) !important; 
+    border: none !important;
+}

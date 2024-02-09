@@ -1,0 +1,13 @@
+h1 {
+    font-weight: bold; /* Set the font weight to bold */
+    text-transform: uppercase; /* Convert text to uppercase */
+    color: var(--main-brand-color);
+    margin-left: 2rem; /* Set left margin */
+}
+
+div {
+    background-color: var(--secondary-background-color);
+    margin-right: 2rem; /* Set right margin */
+    margin-left: 2rem; /* Set left margin */
+    margin-bottom: 100px; /* Set bottom margin */
+}

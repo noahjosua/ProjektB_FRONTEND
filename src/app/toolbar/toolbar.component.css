@@ -1,0 +1,43 @@
+/* Style for the image within the p-toolbar-group-start */
+.p-toolbar-group-start a img {
+    width: auto; /* Set width to auto for responsiveness */
+    height: 40px;
+    margin-left: 2rem; 
+}
+
+/* Style for the p-toolbar-group-end */
+.p-toolbar-group-end {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: flex-end; 
+    padding-right: 5rem; 
+}
+
+/* Style for links within p-toolbar-group-end */
+.p-toolbar-group-end a {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 1rem;
+}
+
+/* Style for link color and decoration within p-toolbar-group-end */
+.p-toolbar-group-end a:link,
+.p-toolbar-group-end a:visited {
+    color: var(--main-background-color);
+    text-decoration: none;
+}
+
+/* Custom style for p-toolbar */
+::ng-deep .p-toolbar {
+    background-color: var(--main-brand-color);
+    height: 70px;
+    width: 100vw; /* Set the width of the toolbar to 100% of the viewport width */
+    border-radius: 0px; /* Set border-radius to 0 for sharp corners */
+    border: none;
+    font-size: 1rem;
+}
+
+/* Style to remove focus box-shadow on p-button within p-toolbar */
+::ng-deep .p-button:focus {
+    box-shadow: none !important;
+}

@@ -1,0 +1,34 @@
+/* Center the content vertically and horizontally within the container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Center text within the login form */
+.login-form {
+    text-align: center;
+}
+
+/* Style for form groups, align items, and add margin at the bottom */
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Make the input fields expand to fill available space in the form group */
+.form-group input {
+    flex: 1; 
+}
+
+/* Add margin at the top for the button container */
+.button-container {
+    margin-top: auto;
+}
+
+/* Set maximum width for error messages */
+.error-message {
+    max-width: 230px;
+}

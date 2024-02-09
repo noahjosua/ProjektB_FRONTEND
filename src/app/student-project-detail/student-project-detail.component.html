@@ -1,0 +1,159 @@
+<p-toast></p-toast>
+<div class="header" [ngClass]="{ 'small-header': isSmallScreen }">
+    <h1> {{ project?.title }} </h1>
+    <div class="button-container" [ngClass]="{ 'small-button': isSmallScreen }">
+      <!-- Button to delete project (visible for authenticated users who created the project or admin) -->
+      <p-button *ngIf="isAuthenticated && (userId == project?.creator || isAdmin == true)" 
+                label="Löschen" 
+                icon="pi pi-minus" 
+                iconPos="right" 
+                styleClass="p-button-sm" 
+                (onClick)="onDelete(project?.id)"></p-button> 
+      <!-- Button to edit project (visible for authenticated users who created the project) -->
+      <p-button *ngIf="isAuthenticated && (userId == project?.creator)" 
+                label="Bearbeiten" 
+                icon="pi pi-pencil" 
+                iconPos="right" 
+                styleClass="p-button-sm" 
+                (onClick)="onEdit()"></p-button>
+    </div>
+</div>
+
+<div class="container" [ngClass]="{ 'flex-column': isSmallScreen }">
+  <!-- Gallery of project images -->
+    <div *ngIf="project?.imagesPaths !== undefined && project?.imagesPaths !== null">
+        <p-galleria [value]="formatImagePaths(project?.imagesPaths)"
+                    [showIndicators]="true" 
+                    [showThumbnails]="false" 
+                    [changeItemOnIndicatorHover]="true"> 
+            <ng-template pTemplate="item" let-item>
+                <img [src]="item.source"/>
+            </ng-template>
+        </p-galleria>
+    </div>
+ 
+    <!-- Project details section -->
+    <div>
+        <h2> Titel des Projekts: {{ project?.title }} </h2>
+        <p> Zeitraum: {{ formatDate(project?.start) }} bis {{ formatDate(project?.end) }} </p>
+        <p> Team: {{ formatArrayValues(project?.team) }} </p>
+        <p> Tech Stack: {{ formatArrayValues(project?.techStack) }} </p>
+        <p> Projekt URL: <a href="{{ project?.repositoryUrl }}" target="_blank">{{ project?.repositoryUrl }}</a></p>
+    </div>
+</div>
+
+<!-- Section for project description -->
+<h1>Über das Projekt</h1>
+<div class="about" [innerHTML]="sanitizedDescription"></div>
+
+<!-- Dialog for editing the project -->
+<p-dialog header="Projekt bearbeiten" 
+          styleClass="p-fluid"
+          [style]="{width: '50vw'}"
+          [modal]="true"
+          [(visible)]="isEditing"
+          [closable]="false">
+          <ng-template pTemplate="content">
+            <div>
+              <div class="dialog-container">
+                <label>Projekttitel</label>
+                <input pInputText 
+                          type="text" 
+                          maxlength="50"
+                          required 
+                          [(ngModel)]="updatedProject.title" 
+                          (input)="validateTitel()"/>
+              </div>
+              
+              <div class="dialog-container">
+                <label>Beginn der Umsetzung</label>
+                <p-calendar appendTo="body" 
+                            view="month"
+                            dateFormat="mm/yy"
+                            [(ngModel)]="updatedProject.start"
+                            (onClose)="validateDate()">
+                </p-calendar>
+              </div>
+
+              <div class="dialog-container">
+                <label>Ende der Umsetzung</label>
+                <p-calendar appendTo="body" 
+                            view="month"
+                            dateFormat="mm/yy"
+                            [(ngModel)]="updatedProject.end"
+                            (onClose)="validateDate()">
+                </p-calendar>
+              </div>
+
+              <div class="dialog-container">
+                <label>Team</label>
+                <p-chips  required 
+                          separator=","
+                          addOnTab="true"
+                          addOnBlur="true"
+                          [(ngModel)]="updatedProject.team"
+                          (onAdd)="validateTeam()"
+                          (onRemove)="validateTeam()">
+                </p-chips>
+              </div>
+
+              <div class="dialog-container">
+                <label>Tech Stack</label>
+                <p-chips  required 
+                          separator=","
+                          addOnTab="true"
+                          addOnBlur="true"
+                          [(ngModel)]="updatedProject.techStack"
+                          (onAdd)="validateTechStack()"
+                          (onRemove)="validateTechStack()">
+                </p-chips>
+              </div>
+
+              <div class="dialog-container">
+                <label>Repository URL</label>
+                <input pInputText 
+                          type="text" 
+                          placeholder="https://www.example.com"
+                          minlength=""
+                          maxlength="" 
+                          [(ngModel)]="updatedProject.repositoryUrl"
+                          (input)="validateRepositoryUrl()"/>
+              </div>
+
+              <div class="dialog-container">
+                <label>Beschreibung des Projekts</label>
+                <p-editor [(ngModel)]="updatedProject.description" 
+                          [style]="{ height: '320px' }"
+                          [modules]="quillModules"
+                          (onTextChange)="validateDescription()">
+                </p-editor>
+              </div>
+
+              <p-fileUpload 
+              (onUpload)="onUpload($event)"
+              name="images[]" 
+              [url]="uploadURL" 
+              [multiple]="true" 
+              accept="image/*" 
+              maxFileSize="1000000"
+              fileLimit="10">
+              <ng-template pTemplate="content">
+                <ul *ngIf="uploadedFiles.length">
+                    <li *ngFor="let file of uploadedFiles">{{ file.name }}</li>
+                </ul>
+              </ng-template>
+              </p-fileUpload>
+            
+            </div>
+            
+            <!-- Save and Cancel buttons -->
+            <div [ngClass]="{'vertical-layout': isSmallScreen, 'horizontal-layout': !isSmallScreen}">
+              <p-button label="Speichern" icon="pi pi-save" iconPos="right" 
+                        styleClass="p-button-sm" (click)="saveProject()" 
+                        [disabled]="!isValidTitle || !isValidStart || !isValidEnd
+                                    || !isValidTeam || !isValidTechStack || !isValidRepositoryUrl
+                                    || !isValidDescription"></p-button>
+              <p-button label="Abbrechen" icon="" iconPos="right" styleClass="p-button-sm" (click)="cancel()"></p-button>
+            </div>
+          </ng-template>
+</p-dialog>

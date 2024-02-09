@@ -1,0 +1,119 @@
+h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--main-brand-color);
+    margin-left: 2rem;
+}
+
+.header {
+    display: flex; /* Use flex display for alignment */
+    justify-content: space-between; /* Space content evenly between items */
+    align-items: center; /* Center content vertically */
+    margin-right: 2rem; /* Set right margin */
+    margin-left: 2rem; /* Set left margin */
+}
+
+/* Style for the button container within the header */
+.button-container {
+    display: flex;
+    flex-direction: row; /* Arrange items in a row */
+    gap: 1rem; /* This will create a gap of 1rem between the buttons */
+    margin-top: 1rem;
+    order: 2; /* Change the order of the button container */
+}
+
+/* Style for small header layout (eg if a small screen is detected) */
+.small-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Style for small button layout (eg if a small screen is detected) */
+.small-button {
+    order: 1;
+    margin-top: 10px;
+}
+
+/* Style for the container that holds the image gallery on the left and the bullet point details on the right */
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Style for the flex column layout within the container. Applied when a small screen is detected */
+.flex-column {
+    flex-direction: column;
+}
+
+/* Style for the first child (image gallery) within the container */
+.container > div:first-child {
+    flex: 2;
+    margin-right: 10rem;
+
+    @media (max-width: 767px) {
+        margin-right: 0;
+      }
+}
+
+/* Style for the remaining children within the container */
+.container > div {
+    flex: 1;
+}
+
+/* Custom styling for the p-galleria component */
+::ng-deep .p-galleria-item-container {
+    flex: 1; 
+    overflow: hidden; /* Hide overflow */
+    margin-top: 1.5rem;
+}
+
+::ng-deep .p-galleria-item {
+    flex: 1;
+    height: 60vh;
+    overflow: hidden;
+}
+
+::ng-deep .p-galleria-item img {
+    max-width: 100%;
+    max-height: auto;
+    box-sizing: border-box; /* Include border and padding in the total width/height */
+}
+
+/* Style for the about section */
+.about {
+    background-color: var(--secondary-background-color);
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 5rem;
+}
+
+/* Style for links */
+a, a:visited {
+    color: blue;
+}
+
+/* Dialog */
+.dialog-container {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vertical-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 15px;
+}
+  
+.horizontal-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 15px; 
+}

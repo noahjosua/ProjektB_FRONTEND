@@ -1,0 +1,13 @@
+<p-toolbar>
+    <div class="p-toolbar-group-start">
+      <a routerLink="/">
+        <img src="../assets/pictures/folder.png">
+      </a>
+    </div>
+    <div class="p-toolbar-group-end">
+      <p-splitButton icon="pi pi-user" styleClass="p-button-text mr-2 mb-2" [model]="options" [routerLink]="routerLink" (onClick)="toggleView()"> </p-splitButton>
+      <a *ngIf="!isSmallScreen" routerLink="/">Startseite</a>
+      <a *ngIf="!isSmallScreen" href="#about">Über</a>
+      <a *ngIf="!isSmallScreen" href="#projects">Projekte</a>
+    </div>
+</p-toolbar>

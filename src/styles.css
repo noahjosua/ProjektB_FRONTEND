@@ -1,0 +1,41 @@
+/* Import PrimeIcons, PrimeNG styles, and Lara Light Blue theme */
+@import "primeicons/primeicons.css";
+@import "primeng/resources/primeng.css";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+
+/* Define font faces for custom fonts */
+@font-face {
+    font-family: "Martel";
+    src: url("/assets/fonts/Martel/Martel-Regular.ttf");
+}
+
+@font-face {
+    font-family: "OpenSans300";
+    src: url("/assets/fonts/OpenSans/Open\ Sans\ 300.ttf");
+}
+
+@font-face {
+    font-family: "OpenSans700";
+    src: url("/assets/fonts/OpenSans/Open\ Sans\ 700.ttf");
+}
+
+@font-face {
+    font-family: "OpenSansRegular";
+    src: url("/assets/fonts/OpenSans/Open\ Sans\ regular.ttf");
+}
+
+/* Define root variables for colors */
+:root{
+    --main-brand-color: #8B9D77; 
+    --main-background-color: #fff; 
+    --secondary-background-color: #e4e4e4;
+    --main-text-color: #15171C; 
+    --footer-color: #666666; 
+}
+
+/* Body styles */
+body{
+    margin: 0; 
+    font-size: 16px;
+    font-family: "OpenSansRegular";
+}

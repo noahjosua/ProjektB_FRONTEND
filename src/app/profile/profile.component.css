@@ -1,0 +1,67 @@
+/* Style für projects section title */
+.projects h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--main-brand-color);
+    margin-left: 2rem;
+}
+
+.projects > div {
+    margin-right: 2rem;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style for the projects-container within the projects section */
+.projects-container {
+    display: flex;
+    justify-content: space-evenly; 
+    flex-wrap: wrap;
+}
+
+/* Style for individual projects */
+.project {
+    margin-left: 2rem; 
+    margin-right: 4rem;
+    margin-bottom: 2rem;
+}
+
+.project h3 {
+    text-transform: uppercase;
+    color: var(--main-brand-color); 
+}
+
+.project p {
+    color: var(--main-text-color);
+}
+
+/* Style for the container within the dialog content */
+.container {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Style for the vertical layout within the dialog */
+.vertical-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+/* Style for the horizontal layout within the dialog */  
+.horizontal-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 15px; 
+}
+
+/* Custom styling to hide the Quill editor toolbar */
+::ng-deep .p-editor-toolbar {
+    display: none;
+}

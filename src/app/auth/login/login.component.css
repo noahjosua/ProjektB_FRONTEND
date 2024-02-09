@@ -1,0 +1,29 @@
+/* The container class is used for the overall layout, making use of flexbox */
+.container {
+    display: flex; /* Set the container as a flex container */
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    min-height: 100vh; /* Set a minimum height of 100% of the viewport height */
+}
+
+/* Styling for the login form */
+.login-form {
+    text-align: center; /* Center-align the text within the login form */
+}
+
+/* Styling for form groups, which are used to group form elements */
+.form-group {
+    display: flex; /* Set the form group as a flex container */
+    align-items: center; /* Center the content vertically within the form group */
+    margin-bottom: 1rem; /* Add a bottom margin of 1rem to separate form groups */
+}
+
+/* Style for input elements within form groups */
+.form-group input {
+    flex: 1; /* Allow the input to grow and take up available space within the form group */
+}
+
+/* Style for the button container, which is positioned at the bottom of the container */
+.button-container {
+    margin-top: auto; /* Push the button container to the bottom of the container */
+}

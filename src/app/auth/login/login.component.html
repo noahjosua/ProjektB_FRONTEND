@@ -1,0 +1,17 @@
+<div class="container">
+    <!-- Toast component for displaying messages -->
+    <p-toast></p-toast>
+    
+    <div class="login-form">
+        <h1>Login</h1>
+        <div class="form-group">
+            <input type="email" pInputText placeholder="Email" [(ngModel)]="email">
+        </div>
+        <div class="form-group">
+            <p-password [toggleMask]="true" [feedback]="false" placeholder="Passwort" [(ngModel)]="password"></p-password>
+        </div>
+        <div class="button-container">
+            <p-button label="Login" styleClass="p-button-sm" (onClick)="onLogin()"></p-button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<section id="projects" class="projects">
+    <div>
+      <h1>Meine Projekte</h1>
+    </div>
+    <div class="projects-container">
+      <!-- loop through each project and display its title, description, and a 'Mehr...' button -->
+      <div class="project" *ngFor="let project of projects">
+          <h3>{{shortenString(project.title)}}</h3>
+          <p>{{shortenString(project.description)}}</p>
+          <!-- navigate to project details page on button click -->
+          <p-button label="Mehr..." styleClass="p-button-sm" [routerLink]="['/details', project._id]"></p-button> 
+      </div>
+    </div>
+  </section>

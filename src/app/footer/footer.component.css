@@ -1,0 +1,16 @@
+.footer {
+    background-color: var(--footer-color); /* Set the background color using a CSS variable */
+    height: 70px; /* Set the height of the footer */
+    width: 100%; /* Make the footer span the entire width of the viewport */
+    position: fixed; /* Fix the position of the footer at the bottom of the viewport */
+    bottom: 0; /* Align the footer at the bottom of the viewport */
+    display: flex; /* Use flex display for alignment */
+    justify-content: center; /* Center content horizontally within the footer */
+    align-items: center; /* Center content vertically within the footer */
+}
+
+.footer-text {
+    margin: 0; /* Remove any default margin */
+    margin-right: 20px; /* Add right margin to separate the text */
+    color: var(--main-background-color); /* Set the text color using a CSS variable */
+}

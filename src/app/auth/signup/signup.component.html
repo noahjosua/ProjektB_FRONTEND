@@ -1,0 +1,29 @@
+<div class="container">
+    <!-- PrimeNG Toast component for displaying messages -->
+    <p-toast></p-toast>
+
+    <div class="login-form">
+        <h1>Registrierung</h1>
+        <div class="form-group">
+            <input id="email" autocomplete="off" type="email" pInputText placeholder="Email" [class]="emailVal" [(ngModel)]="email" (input)="validateEmail()">
+        </div>
+        <div *ngIf="showEmailError" class="error-message">{{emailError}}</div>
+        <div class="form-group">
+            <p-password [toggleMask]="true" placeholder="Passwort" [class]="passwordVal" [(ngModel)]="password" (onBlur)="validatePassword()" promptLabel="Wähle ein Passwort."></p-password>
+        </div>
+        <div *ngIf="showPasswordError" class="error-message">{{passwordError}}</div>
+        <div class="form-group">
+            <p-password [toggleMask]="true" placeholder="Passwort" [class]="repeatPasswordVal" [(ngModel)]="repeatPassword" (onBlur)="validateRepeatPassword()" promptLabel="Wähle ein Passwort."></p-password>
+        </div>
+        <div *ngIf="showRepeatPasswordError" class="error-message">{{passwordRepeatError}}</div>
+        <div class="form-group">
+            <p-checkbox [(ngModel)]="isAdmin" label="Administrator*in" [binary]="true"></p-checkbox>
+        </div> 
+        <div class="button-container">
+            <!-- PrimeNG button for registration with dynamic disabling based on form validation and onClick event for registration action -->
+            <p-button label="Registrieren" styleClass="p-button-sm" 
+                [disabled]="!isValidEmail || !isValidPassword || !isValidRepeatPassword"
+                (onClick)="onSignUp()"></p-button>            
+        </div>
+    </div>
+</div>
