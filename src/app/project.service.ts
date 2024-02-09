@@ -52,9 +52,9 @@ export class ProjectService {
     }
 
     // Fetch projects by creator from the backend
-    fetchProjectsByCreator(creatorId: string) {
+    fetchProjectsByCreator(id: string) {
         return this.httpClient.get<{ projects: Project[] }>
-        (`${environment.baseUrl}/api/projects/creator/` + creatorId) 
+        (`${environment.baseUrl}/api/projects/creator/${id}`) 
             .subscribe((projectData) => {
                 this.userProjects = projectData.projects;
                 this.projectsUpdated.next([...this.userProjects]);
@@ -65,7 +65,7 @@ export class ProjectService {
     // Fetch a single project by ID from the backend
     getProject(id: string) {
         return this.httpClient.get<{_id: string, title: string, start: Date, end: Date, team: string, techStack: string, repositoryUrl: string, description: string, imagesPaths: string, creator: string }>
-        (`${environment.baseUrl}/api/projects/` + id); 
+        (`${environment.baseUrl}/api/projects/${id}`); 
     }
 
     // Add a new project to the backend
