@@ -1,0 +1,2688 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>website-frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">website-frontend documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  StudentProjectDetailComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/student-project-detail/student-project-detail.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-student-project-detail</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./student-project-detail.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./student-project-detail.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#authListenerSub" >authListenerSub</a>
+                            </li>
+                            <li>
+                                <a href="#isAdmin" >isAdmin</a>
+                            </li>
+                            <li>
+                                <a href="#isAuthenticated" >isAuthenticated</a>
+                            </li>
+                            <li>
+                                <a href="#isEditing" >isEditing</a>
+                            </li>
+                            <li>
+                                <a href="#isSmallScreen" >isSmallScreen</a>
+                            </li>
+                            <li>
+                                <a href="#isValidDescription" >isValidDescription</a>
+                            </li>
+                            <li>
+                                <a href="#isValidEnd" >isValidEnd</a>
+                            </li>
+                            <li>
+                                <a href="#isValidRepositoryUrl" >isValidRepositoryUrl</a>
+                            </li>
+                            <li>
+                                <a href="#isValidStart" >isValidStart</a>
+                            </li>
+                            <li>
+                                <a href="#isValidTeam" >isValidTeam</a>
+                            </li>
+                            <li>
+                                <a href="#isValidTechStack" >isValidTechStack</a>
+                            </li>
+                            <li>
+                                <a href="#isValidTitle" >isValidTitle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#notification" >notification</a>
+                            </li>
+                            <li>
+                                <a href="#project" >project</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#projectId" >projectId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#projectService" >projectService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#route" >route</a>
+                            </li>
+                            <li>
+                                <a href="#sanitizedDescription" >sanitizedDescription</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#showMessageToUserSub" >showMessageToUserSub</a>
+                            </li>
+                            <li>
+                                <a href="#updatedProject" >updatedProject</a>
+                            </li>
+                            <li>
+                                <a href="#uploadedFiles" >uploadedFiles</a>
+                            </li>
+                            <li>
+                                <a href="#uploadURL" >uploadURL</a>
+                            </li>
+                            <li>
+                                <a href="#userId" >userId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancel" >cancel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clearUpdatedProject" >clearUpdatedProject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clearValidation" >clearValidation</a>
+                            </li>
+                            <li>
+                                <a href="#formatArrayValues" >formatArrayValues</a>
+                            </li>
+                            <li>
+                                <a href="#formatDate" >formatDate</a>
+                            </li>
+                            <li>
+                                <a href="#formatImagePaths" >formatImagePaths</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onDelete" >onDelete</a>
+                            </li>
+                            <li>
+                                <a href="#onEdit" >onEdit</a>
+                            </li>
+                            <li>
+                                <a href="#onUpload" >onUpload</a>
+                            </li>
+                            <li>
+                                <a href="#saveProject" >saveProject</a>
+                            </li>
+                            <li>
+                                <a href="#shortenString" >shortenString</a>
+                            </li>
+                            <li>
+                                <a href="#validateDate" >validateDate</a>
+                            </li>
+                            <li>
+                                <a href="#validateDescription" >validateDescription</a>
+                            </li>
+                            <li>
+                                <a href="#validateRepositoryUrl" >validateRepositoryUrl</a>
+                            </li>
+                            <li>
+                                <a href="#validateTeam" >validateTeam</a>
+                            </li>
+                            <li>
+                                <a href="#validateTechStack" >validateTechStack</a>
+                            </li>
+                            <li>
+                                <a href="#validateTitel" >validateTitel</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: ActivatedRoute, projectService: <a href="../injectables/ProjectService.html" target="_self">ProjectService</a>, authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, messageService: MessageService, responsive: BreakpointObserver, sanitizer: DomSanitizer)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:55</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>projectService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProjectService.html" target="_self" >ProjectService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>messageService</td>
+                                                  
+                                                        <td>
+                                                                    <code>MessageService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>responsive</td>
+                                                  
+                                                        <td>
+                                                                    <code>BreakpointObserver</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sanitizer</td>
+                                                  
+                                                        <td>
+                                                                    <code>DomSanitizer</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancel"></a>
+                    <span class="name">
+                        <span ><b>cancel</b></span>
+                        <a href="#cancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cancel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="210"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:210</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearUpdatedProject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>clearUpdatedProject</b></span>
+                        <a href="#clearUpdatedProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clearUpdatedProject()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="216"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:216</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearValidation"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>clearValidation</b></span>
+                        <a href="#clearValidation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clearValidation()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="232"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:232</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatArrayValues"></a>
+                    <span class="name">
+                        <span ><b>formatArrayValues</b></span>
+                        <a href="#formatArrayValues"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>formatArrayValues(values: string[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:120</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>values</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatDate"></a>
+                    <span class="name">
+                        <span ><b>formatDate</b></span>
+                        <a href="#formatDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>formatDate(projectDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="111"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:111</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>projectDate</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatImagePaths"></a>
+                    <span class="name">
+                        <span ><b>formatImagePaths</b></span>
+                        <a href="#formatImagePaths"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>formatImagePaths(imagesPaths: string[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="126"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:126</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>imagesPaths</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="242"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:242</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDelete"></a>
+                    <span class="name">
+                        <span ><b>onDelete</b></span>
+                        <a href="#onDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDelete(projectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="137"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:137</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>projectId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onEdit"></a>
+                    <span class="name">
+                        <span ><b>onEdit</b></span>
+                        <a href="#onEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onEdit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="144"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:144</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onUpload"></a>
+                    <span class="name">
+                        <span ><b>onUpload</b></span>
+                        <a href="#onUpload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onUpload(event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="186"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:186</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveProject"></a>
+                    <span class="name">
+                        <span ><b>saveProject</b></span>
+                        <a href="#saveProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>saveProject()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="192"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:192</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shortenString"></a>
+                    <span class="name">
+                        <span ><b>shortenString</b></span>
+                        <a href="#shortenString"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>shortenString(input: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="202"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:202</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>input</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateDate"></a>
+                    <span class="name">
+                        <span ><b>validateDate</b></span>
+                        <a href="#validateDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateDate()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="164"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:164</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateDescription"></a>
+                    <span class="name">
+                        <span ><b>validateDescription</b></span>
+                        <a href="#validateDescription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateDescription()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="182"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:182</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateRepositoryUrl"></a>
+                    <span class="name">
+                        <span ><b>validateRepositoryUrl</b></span>
+                        <a href="#validateRepositoryUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateRepositoryUrl()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="177"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:177</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateTeam"></a>
+                    <span class="name">
+                        <span ><b>validateTeam</b></span>
+                        <a href="#validateTeam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateTeam()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="169"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateTechStack"></a>
+                    <span class="name">
+                        <span ><b>validateTechStack</b></span>
+                        <a href="#validateTechStack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateTechStack()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateTitel"></a>
+                    <span class="name">
+                        <span ><b>validateTitel</b></span>
+                        <a href="#validateTitel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateTitel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="160"
+                                    class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:160</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authListenerSub"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>authListenerSub</b></span>
+                        <a href="#authListenerSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAdmin"></a>
+                    <span class="name">
+                        <span ><b>isAdmin</b></span>
+                        <a href="#isAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAuthenticated"></a>
+                    <span class="name">
+                        <span ><b>isAuthenticated</b></span>
+                        <a href="#isAuthenticated"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEditing"></a>
+                    <span class="name">
+                        <span ><b>isEditing</b></span>
+                        <a href="#isEditing"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSmallScreen"></a>
+                    <span class="name">
+                        <span ><b>isSmallScreen</b></span>
+                        <a href="#isSmallScreen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isValidDescription"></a>
+                    <span class="name">
+                        <span ><b>isValidDescription</b></span>
+                        <a href="#isValidDescription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isValidEnd"></a>
+                    <span class="name">
+                        <span ><b>isValidEnd</b></span>
+                        <a href="#isValidEnd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isValidRepositoryUrl"></a>
+                    <span class="name">
+                        <span ><b>isValidRepositoryUrl</b></span>
+                        <a href="#isValidRepositoryUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isValidStart"></a>
+                    <span class="name">
+                        <span ><b>isValidStart</b></span>
+                        <a href="#isValidStart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isValidTeam"></a>
+                    <span class="name">
+                        <span ><b>isValidTeam</b></span>
+                        <a href="#isValidTeam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isValidTechStack"></a>
+                    <span class="name">
+                        <span ><b>isValidTechStack</b></span>
+                        <a href="#isValidTechStack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isValidTitle"></a>
+                    <span class="name">
+                        <span ><b>isValidTitle</b></span>
+                        <a href="#isValidTitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notification"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>notification</b></span>
+                        <a href="#notification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/NotificationMessage.html" target="_self" >NotificationMessage</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ severity: &#x27;&#x27;, summary: &#x27;&#x27;, detail: &#x27;&#x27; }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="project"></a>
+                    <span class="name">
+                        <span ><b>project</b></span>
+                        <a href="#project"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Project.html" target="_self" >Project</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="projectId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>projectId</b></span>
+                        <a href="#projectId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="projectService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>projectService</b></span>
+                        <a href="#projectService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/ProjectService.html" target="_self" >ProjectService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="route"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>route</b></span>
+                        <a href="#route"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ActivatedRoute</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sanitizedDescription"></a>
+                    <span class="name">
+                        <span ><b>sanitizedDescription</b></span>
+                        <a href="#sanitizedDescription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>SafeHtml</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showMessageToUserSub"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>showMessageToUserSub</b></span>
+                        <a href="#showMessageToUserSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatedProject"></a>
+                    <span class="name">
+                        <span ><b>updatedProject</b></span>
+                        <a href="#updatedProject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Project.html" target="_self" >Project</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ 
+    id: &#x27;&#x27;,
+    title: &#x27;&#x27;,
+    start: new Date(), 
+    end: new Date(), 
+    team: [],
+    techStack: [],
+    repositoryUrl: &#x27;&#x27;,
+    description: &#x27;&#x27;,
+    imagesPaths: [],
+    creator: &#x27;&#x27;
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadedFiles"></a>
+                    <span class="name">
+                        <span ><b>uploadedFiles</b></span>
+                        <a href="#uploadedFiles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>File[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uploadURL"></a>
+                    <span class="name">
+                        <span ><b>uploadURL</b></span>
+                        <a href="#uploadURL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;${environment.baseUrl}/api/projects/upload&#x60;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userId"></a>
+                    <span class="name">
+                        <span ><b>userId</b></span>
+                        <a href="#userId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/student-project-detail/student-project-detail.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Project } from &#x27;../project.model&#x27;;
+import { ActivatedRoute, ParamMap } from &#x27;@angular/router&#x27;;
+import { ProjectService } from &#x27;../project.service&#x27;;
+import { AuthService } from &#x27;../auth/auth.service&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+import { MessageService } from &#x27;primeng/api&#x27;;
+import { NotificationMessage } from &#x27;../NotificationMessage&#x27;;
+import { BreakpointObserver, Breakpoints } from &#x27;@angular/cdk/layout&#x27;;
+import { DomSanitizer, SafeHtml } from &#x27;@angular/platform-browser&#x27;;
+import { environment } from &#x27;src/environments/environment&#x27;;
+
+@Component({
+  selector: &#x27;app-student-project-detail&#x27;,
+  templateUrl: &#x27;./student-project-detail.component.html&#x27;,
+  styleUrls: [&#x27;./student-project-detail.component.css&#x27;]
+})
+export class StudentProjectDetailComponent implements OnInit {
+
+  private projectId: string; 
+  private authListenerSub: Subscription; 
+  private showMessageToUserSub: Subscription;
+  private notification: NotificationMessage &#x3D; { severity: &#x27;&#x27;, summary: &#x27;&#x27;, detail: &#x27;&#x27; };
+
+  project: Project; 
+  sanitizedDescription: SafeHtml;
+  isAuthenticated: boolean &#x3D; false; 
+  userId: string; 
+  isAdmin: boolean;
+  isSmallScreen: boolean;
+
+  isEditing: boolean &#x3D; false;
+  uploadedFiles: File[] &#x3D; [];
+  uploadURL &#x3D; &#x60;${environment.baseUrl}/api/projects/upload&#x60;; 
+
+  updatedProject: Project &#x3D; { 
+    id: &#x27;&#x27;,
+    title: &#x27;&#x27;,
+    start: new Date(), 
+    end: new Date(), 
+    team: [],
+    techStack: [],
+    repositoryUrl: &#x27;&#x27;,
+    description: &#x27;&#x27;,
+    imagesPaths: [],
+    creator: &#x27;&#x27;
+  }
+  
+  isValidTitle: boolean &#x3D; true; 
+  isValidStart: boolean &#x3D; true;
+  isValidEnd: boolean &#x3D; true;
+  isValidTeam: boolean &#x3D; true;
+  isValidTechStack: boolean &#x3D; true;
+  isValidRepositoryUrl: boolean &#x3D; true;
+  isValidDescription: boolean &#x3D; true;
+
+  constructor(
+    public route: ActivatedRoute, 
+    public projectService: ProjectService, 
+    private authService: AuthService, 
+    private messageService: MessageService, 
+    private responsive: BreakpointObserver, 
+    private sanitizer: DomSanitizer) { }
+
+  ngOnInit(): void {
+    this.userId &#x3D; this.authService.getUserId();
+    this.isAdmin &#x3D; this.authService.getIsAdmin();
+    this.isAuthenticated &#x3D; this.authService.getIsAuth();
+
+    this.authListenerSub &#x3D; this.authService.getAuthStatusListener()
+    .subscribe(isAuthenticated &#x3D;&gt; {
+      this.isAuthenticated &#x3D; isAuthenticated;
+      this.userId &#x3D; this.authService.getUserId();
+      this.isAdmin &#x3D; this.authService.getIsAdmin();
+    });
+
+    this.showMessageToUserSub &#x3D; this.projectService.getShowMessageToUserSubject().subscribe(
+      message &#x3D;&gt; {
+        this.notification &#x3D; message;
+      }
+    );
+
+    this.responsive.observe([Breakpoints.XSmall, Breakpoints.Small]).subscribe(
+      result &#x3D;&gt; {
+        if(result.matches) this.isSmallScreen &#x3D; true;
+      }
+    );
+
+    this.route.paramMap.subscribe((paramMap: ParamMap) &#x3D;&gt; {
+      if (paramMap.has(&#x27;projectId&#x27;)) {
+        this.projectId &#x3D; paramMap.get(&#x27;projectId&#x27;);
+        this.projectService.getProject(this.projectId).subscribe(projectData &#x3D;&gt; {
+          this.project &#x3D; {
+            id: projectData._id,
+            title: projectData.title,
+            start: projectData.start,
+            end: projectData.end,
+            team: [projectData.team],
+            techStack: [projectData.techStack],
+            repositoryUrl: projectData.repositoryUrl,
+            description: projectData.description,
+            imagesPaths: [projectData.imagesPaths],
+            creator: projectData.creator
+          }; 
+          this.sanitizedDescription &#x3D; this.sanitizer.bypassSecurityTrustHtml(this.project.description);
+        });
+      }
+    });
+  }
+
+  formatDate(projectDate: string) {
+    if(projectDate !&#x3D;&#x3D; undefined &amp;&amp; projectDate !&#x3D;&#x3D; null) {
+      const date &#x3D; new Date(projectDate);
+      const month &#x3D; (date.getMonth() + 1).toString().padStart(2, &#x27;0&#x27;);
+      const year &#x3D; date.getFullYear().toString();
+      return &#x60;${month}/${year}&#x60;;
+    }
+  }
+
+  formatArrayValues(values: string[]) {
+    if(values !&#x3D;&#x3D; undefined &amp;&amp; values !&#x3D;&#x3D; null) {
+      return values.join(&#x27;, &#x27;);
+    }
+  }
+
+  formatImagePaths(imagesPaths: string[]) {
+    if(imagesPaths !&#x3D;&#x3D; undefined &amp;&amp; imagesPaths !&#x3D;&#x3D; null) {
+      const pathsArray &#x3D; imagesPaths[0]; 
+      const urls: string[] &#x3D; [];
+      for(const path of pathsArray) {
+        urls.push(path);
+      }
+      return urls.map(source &#x3D;&gt; ({source}));
+    }
+  }
+
+  onDelete(projectId: string) {
+    this.projectService.deleteProject(projectId);
+    setTimeout(() &#x3D;&gt; {
+      this.messageService.add(this.notification);
+    }, 1000);
+  }
+
+  onEdit() {
+    this.isEditing &#x3D; true;
+    this.updatedProject &#x3D; {
+      id: this.project.id,
+      title: this.project.title,
+      start: new Date(),
+      end: new Date(),
+      team: this.project.team,
+      techStack: this.project.techStack,
+      repositoryUrl: this.project.repositoryUrl,
+      description: this.project.description,
+      imagesPaths: this.project.imagesPaths,
+      creator: this.project.creator
+    }
+  }
+
+  validateTitel() {
+    this.isValidTitle &#x3D; this.updatedProject.title.length &gt; 0 &amp;&amp; this.updatedProject.title.length &lt;&#x3D; 50;
+  }
+
+  validateDate() {
+    this.isValidStart &#x3D; this.updatedProject.start &lt;&#x3D; new Date() &amp;&amp; this.updatedProject.start &lt;&#x3D; this.updatedProject.end;
+    this.isValidEnd &#x3D; this.updatedProject.end &lt;&#x3D; new Date() &amp;&amp; this.updatedProject.end &gt;&#x3D; this.updatedProject.start;
+  }
+
+  validateTeam() {
+    this.isValidTeam &#x3D; this.updatedProject.team.length &gt; 0;
+  }
+
+  validateTechStack() {
+    this.isValidTechStack &#x3D; this.updatedProject.techStack.length &gt; 0;
+  }
+
+  validateRepositoryUrl() {
+    const regex &#x3D; /https:\/\/(?:www\.)?(?:[\da-zA-Z-]+\.){1,2}[a-zA-Z]{2,6}(?:\/[^\s]*)?/;
+    this.isValidRepositoryUrl &#x3D; regex.test(this.updatedProject.repositoryUrl);     
+  }
+
+  validateDescription() {
+    this.isValidDescription &#x3D; this.updatedProject.description.length &gt; 0;
+  }
+
+  onUpload(event) {
+    for (let file of event.files) {
+      this.uploadedFiles.push(file);
+    }
+  }
+
+  saveProject() {
+    this.isEditing &#x3D; false;
+    this.projectService.updateProject(this.updatedProject, this.uploadedFiles);
+    setTimeout(() &#x3D;&gt; {
+      this.messageService.add(this.notification);
+    }, 1000);
+    this.clearUpdatedProject();
+    this.clearValidation();
+  }
+
+  shortenString(input: string) {
+    if(input.length &gt; 10) {
+      return input.substring(0, 10) + &#x27;...&#x27;;
+    } else {
+      return input;
+    }
+  }
+
+  cancel() {
+    this.isEditing &#x3D; false;
+    this.clearUpdatedProject();
+    this.clearValidation();
+  }
+
+  private clearUpdatedProject() {
+    this.updatedProject &#x3D; { 
+      id: &#x27;&#x27;,
+      title: &#x27;&#x27;,
+      start: new Date(), 
+      end: new Date(), 
+      team: [],
+      techStack: [],
+      repositoryUrl: &#x27;&#x27;,
+      description: &#x27;&#x27;,
+      imagesPaths: [],
+      creator: &#x27;&#x27;
+    }
+    this.uploadedFiles &#x3D; [];
+  }
+
+  private clearValidation() {
+    this.isValidTitle &#x3D; true; 
+    this.isValidStart &#x3D; true;
+    this.isValidEnd &#x3D; true;
+    this.isValidTeam &#x3D; true;
+    this.isValidTechStack &#x3D; true;
+    this.isValidRepositoryUrl &#x3D; true;
+    this.isValidDescription &#x3D; true;
+  }
+
+  ngOnDestroy(): void {
+   // this.authListenerSub.unsubscribe(); took it out for deployment becasue it was causing an error I couldnt fix
+   // this.showMessageToUserSub.unsubscribe(); took it out for deployment becasue it was causing an error I couldnt fix
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;p-toast&gt;&lt;/p-toast&gt;
+&lt;div class&#x3D;&quot;header&quot; [ngClass]&#x3D;&quot;{ &#x27;small-header&#x27;: isSmallScreen }&quot;&gt;
+    &lt;h1&gt; {{ project?.title }} &lt;/h1&gt;
+    &lt;div class&#x3D;&quot;button-container&quot; [ngClass]&#x3D;&quot;{ &#x27;small-button&#x27;: isSmallScreen }&quot;&gt;
+      &lt;!-- Button to delete project (visible for authenticated users who created the project or admin) --&gt;
+      &lt;p-button *ngIf&#x3D;&quot;isAuthenticated &amp;&amp; (userId &#x3D;&#x3D; project?.creator || isAdmin &#x3D;&#x3D; true)&quot; 
+                label&#x3D;&quot;Löschen&quot; 
+                icon&#x3D;&quot;pi pi-minus&quot; 
+                iconPos&#x3D;&quot;right&quot; 
+                styleClass&#x3D;&quot;p-button-sm&quot; 
+                (onClick)&#x3D;&quot;onDelete(project?.id)&quot;&gt;&lt;/p-button&gt; 
+      &lt;!-- Button to edit project (visible for authenticated users who created the project) --&gt;
+      &lt;p-button *ngIf&#x3D;&quot;isAuthenticated &amp;&amp; (userId &#x3D;&#x3D; project?.creator)&quot; 
+                label&#x3D;&quot;Bearbeiten&quot; 
+                icon&#x3D;&quot;pi pi-pencil&quot; 
+                iconPos&#x3D;&quot;right&quot; 
+                styleClass&#x3D;&quot;p-button-sm&quot; 
+                (onClick)&#x3D;&quot;onEdit()&quot;&gt;&lt;/p-button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;container&quot; [ngClass]&#x3D;&quot;{ &#x27;flex-column&#x27;: isSmallScreen }&quot;&gt;
+  &lt;!-- Gallery of project images --&gt;
+    &lt;div *ngIf&#x3D;&quot;project?.imagesPaths !&#x3D;&#x3D; undefined &amp;&amp; project?.imagesPaths !&#x3D;&#x3D; null&quot;&gt;
+        &lt;p-galleria [value]&#x3D;&quot;formatImagePaths(project?.imagesPaths)&quot;
+                    [showIndicators]&#x3D;&quot;true&quot; 
+                    [showThumbnails]&#x3D;&quot;false&quot; 
+                    [changeItemOnIndicatorHover]&#x3D;&quot;true&quot;&gt; 
+            &lt;ng-template pTemplate&#x3D;&quot;item&quot; let-item&gt;
+                &lt;img [src]&#x3D;&quot;item.source&quot;/&gt;
+            &lt;/ng-template&gt;
+        &lt;/p-galleria&gt;
+    &lt;/div&gt;
+ 
+    &lt;!-- Project details section --&gt;
+    &lt;div&gt;
+        &lt;h2&gt; Titel des Projekts: {{ project?.title }} &lt;/h2&gt;
+        &lt;p&gt; Zeitraum: {{ formatDate(project?.start) }} bis {{ formatDate(project?.end) }} &lt;/p&gt;
+        &lt;p&gt; Team: {{ formatArrayValues(project?.team) }} &lt;/p&gt;
+        &lt;p&gt; Tech Stack: {{ formatArrayValues(project?.techStack) }} &lt;/p&gt;
+        &lt;p&gt; Projekt URL: &lt;a href&#x3D;&quot;{{ project?.repositoryUrl }}&quot; target&#x3D;&quot;_blank&quot;&gt;{{ project?.repositoryUrl }}&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Section for project description --&gt;
+&lt;h1&gt;Über das Projekt&lt;/h1&gt;
+&lt;div class&#x3D;&quot;about&quot; [innerHTML]&#x3D;&quot;sanitizedDescription&quot;&gt;&lt;/div&gt;
+
+&lt;!-- Dialog for editing the project --&gt;
+&lt;p-dialog header&#x3D;&quot;Projekt bearbeiten&quot; 
+          styleClass&#x3D;&quot;p-fluid&quot;
+          [style]&#x3D;&quot;{width: &#x27;50vw&#x27;}&quot;
+          [modal]&#x3D;&quot;true&quot;
+          [(visible)]&#x3D;&quot;isEditing&quot;
+          [closable]&#x3D;&quot;false&quot;&gt;
+          &lt;ng-template pTemplate&#x3D;&quot;content&quot;&gt;
+            &lt;div&gt;
+              &lt;div class&#x3D;&quot;dialog-container&quot;&gt;
+                &lt;label&gt;Projekttitel&lt;/label&gt;
+                &lt;input pInputText 
+                          type&#x3D;&quot;text&quot; 
+                          maxlength&#x3D;&quot;50&quot;
+                          required 
+                          [(ngModel)]&#x3D;&quot;updatedProject.title&quot; 
+                          (input)&#x3D;&quot;validateTitel()&quot;/&gt;
+              &lt;/div&gt;
+              
+              &lt;div class&#x3D;&quot;dialog-container&quot;&gt;
+                &lt;label&gt;Beginn der Umsetzung&lt;/label&gt;
+                &lt;p-calendar appendTo&#x3D;&quot;body&quot; 
+                            view&#x3D;&quot;month&quot;
+                            dateFormat&#x3D;&quot;mm/yy&quot;
+                            [(ngModel)]&#x3D;&quot;updatedProject.start&quot;
+                            (onClose)&#x3D;&quot;validateDate()&quot;&gt;
+                &lt;/p-calendar&gt;
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;dialog-container&quot;&gt;
+                &lt;label&gt;Ende der Umsetzung&lt;/label&gt;
+                &lt;p-calendar appendTo&#x3D;&quot;body&quot; 
+                            view&#x3D;&quot;month&quot;
+                            dateFormat&#x3D;&quot;mm/yy&quot;
+                            [(ngModel)]&#x3D;&quot;updatedProject.end&quot;
+                            (onClose)&#x3D;&quot;validateDate()&quot;&gt;
+                &lt;/p-calendar&gt;
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;dialog-container&quot;&gt;
+                &lt;label&gt;Team&lt;/label&gt;
+                &lt;p-chips  required 
+                          separator&#x3D;&quot;,&quot;
+                          addOnTab&#x3D;&quot;true&quot;
+                          addOnBlur&#x3D;&quot;true&quot;
+                          [(ngModel)]&#x3D;&quot;updatedProject.team&quot;
+                          (onAdd)&#x3D;&quot;validateTeam()&quot;
+                          (onRemove)&#x3D;&quot;validateTeam()&quot;&gt;
+                &lt;/p-chips&gt;
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;dialog-container&quot;&gt;
+                &lt;label&gt;Tech Stack&lt;/label&gt;
+                &lt;p-chips  required 
+                          separator&#x3D;&quot;,&quot;
+                          addOnTab&#x3D;&quot;true&quot;
+                          addOnBlur&#x3D;&quot;true&quot;
+                          [(ngModel)]&#x3D;&quot;updatedProject.techStack&quot;
+                          (onAdd)&#x3D;&quot;validateTechStack()&quot;
+                          (onRemove)&#x3D;&quot;validateTechStack()&quot;&gt;
+                &lt;/p-chips&gt;
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;dialog-container&quot;&gt;
+                &lt;label&gt;Repository URL&lt;/label&gt;
+                &lt;input pInputText 
+                          type&#x3D;&quot;text&quot; 
+                          placeholder&#x3D;&quot;https://www.example.com&quot;
+                          minlength&#x3D;&quot;&quot;
+                          maxlength&#x3D;&quot;&quot; 
+                          [(ngModel)]&#x3D;&quot;updatedProject.repositoryUrl&quot;
+                          (input)&#x3D;&quot;validateRepositoryUrl()&quot;/&gt;
+              &lt;/div&gt;
+
+              &lt;div class&#x3D;&quot;dialog-container&quot;&gt;
+                &lt;label&gt;Beschreibung des Projekts&lt;/label&gt;
+                &lt;p-editor [(ngModel)]&#x3D;&quot;updatedProject.description&quot; 
+                          [style]&#x3D;&quot;{ height: &#x27;320px&#x27; }&quot;
+                          [modules]&#x3D;&quot;quillModules&quot;
+                          (onTextChange)&#x3D;&quot;validateDescription()&quot;&gt;
+                &lt;/p-editor&gt;
+              &lt;/div&gt;
+
+              &lt;p-fileUpload 
+              (onUpload)&#x3D;&quot;onUpload($event)&quot;
+              name&#x3D;&quot;images[]&quot; 
+              [url]&#x3D;&quot;uploadURL&quot; 
+              [multiple]&#x3D;&quot;true&quot; 
+              accept&#x3D;&quot;image/*&quot; 
+              maxFileSize&#x3D;&quot;1000000&quot;
+              fileLimit&#x3D;&quot;10&quot;&gt;
+              &lt;ng-template pTemplate&#x3D;&quot;content&quot;&gt;
+                &lt;ul *ngIf&#x3D;&quot;uploadedFiles.length&quot;&gt;
+                    &lt;li *ngFor&#x3D;&quot;let file of uploadedFiles&quot;&gt;{{ file.name }}&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/ng-template&gt;
+              &lt;/p-fileUpload&gt;
+            
+            &lt;/div&gt;
+            
+            &lt;!-- Save and Cancel buttons --&gt;
+            &lt;div [ngClass]&#x3D;&quot;{&#x27;vertical-layout&#x27;: isSmallScreen, &#x27;horizontal-layout&#x27;: !isSmallScreen}&quot;&gt;
+              &lt;p-button label&#x3D;&quot;Speichern&quot; icon&#x3D;&quot;pi pi-save&quot; iconPos&#x3D;&quot;right&quot; 
+                        styleClass&#x3D;&quot;p-button-sm&quot; (click)&#x3D;&quot;saveProject()&quot; 
+                        [disabled]&#x3D;&quot;!isValidTitle || !isValidStart || !isValidEnd
+                                    || !isValidTeam || !isValidTechStack || !isValidRepositoryUrl
+                                    || !isValidDescription&quot;&gt;&lt;/p-button&gt;
+              &lt;p-button label&#x3D;&quot;Abbrechen&quot; icon&#x3D;&quot;&quot; iconPos&#x3D;&quot;right&quot; styleClass&#x3D;&quot;p-button-sm&quot; (click)&#x3D;&quot;cancel()&quot;&gt;&lt;/p-button&gt;
+            &lt;/div&gt;
+          &lt;/ng-template&gt;
+&lt;/p-dialog&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./student-project-detail.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--main-brand-color);
+    margin-left: 2rem;
+}
+
+.header {
+    display: flex; /* Use flex display for alignment */
+    justify-content: space-between; /* Space content evenly between items */
+    align-items: center; /* Center content vertically */
+    margin-right: 2rem; /* Set right margin */
+    margin-left: 2rem; /* Set left margin */
+}
+
+/* Style for the button container within the header */
+.button-container {
+    display: flex;
+    flex-direction: row; /* Arrange items in a row */
+    gap: 1rem; /* This will create a gap of 1rem between the buttons */
+    margin-top: 1rem;
+    order: 2; /* Change the order of the button container */
+}
+
+/* Style for small header layout (eg if a small screen is detected) */
+.small-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Style for small button layout (eg if a small screen is detected) */
+.small-button {
+    order: 1;
+    margin-top: 10px;
+}
+
+/* Style for the container that holds the image gallery on the left and the bullet point details on the right */
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Style for the flex column layout within the container. Applied when a small screen is detected */
+.flex-column {
+    flex-direction: column;
+}
+
+/* Style for the first child (image gallery) within the container */
+.container &gt; div:first-child {
+    flex: 2;
+    margin-right: 10rem;
+
+    @media (max-width: 767px) {
+        margin-right: 0;
+      }
+}
+
+/* Style for the remaining children within the container */
+.container &gt; div {
+    flex: 1;
+}
+
+/* Custom styling for the p-galleria component */
+::ng-deep .p-galleria-item-container {
+    flex: 1; 
+    overflow: hidden; /* Hide overflow */
+    margin-top: 1.5rem;
+}
+
+::ng-deep .p-galleria-item {
+    flex: 1;
+    height: 60vh;
+    overflow: hidden;
+}
+
+::ng-deep .p-galleria-item img {
+    max-width: 100%;
+    max-height: auto;
+    box-sizing: border-box; /* Include border and padding in the total width/height */
+}
+
+/* Style for the about section */
+.about {
+    background-color: var(--secondary-background-color);
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 5rem;
+}
+
+/* Style for links */
+a, a:visited {
+    color: blue;
+}
+
+/* Dialog */
+.dialog-container {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vertical-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 15px;
+}
+  
+.horizontal-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 15px; 
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><p-toast></p-toast><div class="header" [ngClass]="{ \'small-header\': isSmallScreen }">    <h1> {{ project?.title }} </h1>    <div class="button-container" [ngClass]="{ \'small-button\': isSmallScreen }">      <!-- Button to delete project (visible for authenticated users who created the project or admin) -->      <p-button *ngIf="isAuthenticated && (userId == project?.creator || isAdmin == true)"                 label="Löschen"                 icon="pi pi-minus"                 iconPos="right"                 styleClass="p-button-sm"                 (onClick)="onDelete(project?.id)"></p-button>       <!-- Button to edit project (visible for authenticated users who created the project) -->      <p-button *ngIf="isAuthenticated && (userId == project?.creator)"                 label="Bearbeiten"                 icon="pi pi-pencil"                 iconPos="right"                 styleClass="p-button-sm"                 (onClick)="onEdit()"></p-button>    </div></div><div class="container" [ngClass]="{ \'flex-column\': isSmallScreen }">  <!-- Gallery of project images -->    <div *ngIf="project?.imagesPaths !== undefined && project?.imagesPaths !== null">        <p-galleria [value]="formatImagePaths(project?.imagesPaths)"                    [showIndicators]="true"                     [showThumbnails]="false"                     [changeItemOnIndicatorHover]="true">             <ng-template pTemplate="item" let-item>                <img [src]="item.source"/>            </ng-template>        </p-galleria>    </div>     <!-- Project details section -->    <div>        <h2> Titel des Projekts: {{ project?.title }} </h2>        <p> Zeitraum: {{ formatDate(project?.start) }} bis {{ formatDate(project?.end) }} </p>        <p> Team: {{ formatArrayValues(project?.team) }} </p>        <p> Tech Stack: {{ formatArrayValues(project?.techStack) }} </p>        <p> Projekt URL: <a href="{{ project?.repositoryUrl }}" target="_blank">{{ project?.repositoryUrl }}</a></p>    </div></div><!-- Section for project description --><h1>Über das Projekt</h1><div class="about" [innerHTML]="sanitizedDescription"></div><!-- Dialog for editing the project --><p-dialog header="Projekt bearbeiten"           styleClass="p-fluid"          [style]="{width: \'50vw\'}"          [modal]="true"          [(visible)]="isEditing"          [closable]="false">          <ng-template pTemplate="content">            <div>              <div class="dialog-container">                <label>Projekttitel</label>                <input pInputText                           type="text"                           maxlength="50"                          required                           [(ngModel)]="updatedProject.title"                           (input)="validateTitel()"/>              </div>                            <div class="dialog-container">                <label>Beginn der Umsetzung</label>                <p-calendar appendTo="body"                             view="month"                            dateFormat="mm/yy"                            [(ngModel)]="updatedProject.start"                            (onClose)="validateDate()">                </p-calendar>              </div>              <div class="dialog-container">                <label>Ende der Umsetzung</label>                <p-calendar appendTo="body"                             view="month"                            dateFormat="mm/yy"                            [(ngModel)]="updatedProject.end"                            (onClose)="validateDate()">                </p-calendar>              </div>              <div class="dialog-container">                <label>Team</label>                <p-chips  required                           separator=","                          addOnTab="true"                          addOnBlur="true"                          [(ngModel)]="updatedProject.team"                          (onAdd)="validateTeam()"                          (onRemove)="validateTeam()">                </p-chips>              </div>              <div class="dialog-container">                <label>Tech Stack</label>                <p-chips  required                           separator=","                          addOnTab="true"                          addOnBlur="true"                          [(ngModel)]="updatedProject.techStack"                          (onAdd)="validateTechStack()"                          (onRemove)="validateTechStack()">                </p-chips>              </div>              <div class="dialog-container">                <label>Repository URL</label>                <input pInputText                           type="text"                           placeholder="https://www.example.com"                          minlength=""                          maxlength=""                           [(ngModel)]="updatedProject.repositoryUrl"                          (input)="validateRepositoryUrl()"/>              </div>              <div class="dialog-container">                <label>Beschreibung des Projekts</label>                <p-editor [(ngModel)]="updatedProject.description"                           [style]="{ height: \'320px\' }"                          [modules]="quillModules"                          (onTextChange)="validateDescription()">                </p-editor>              </div>              <p-fileUpload               (onUpload)="onUpload($event)"              name="images[]"               [url]="uploadURL"               [multiple]="true"               accept="image/*"               maxFileSize="1000000"              fileLimit="10">              <ng-template pTemplate="content">                <ul *ngIf="uploadedFiles.length">                    <li *ngFor="let file of uploadedFiles">{{ file.name }}</li>                </ul>              </ng-template>              </p-fileUpload>                        </div>                        <!-- Save and Cancel buttons -->            <div [ngClass]="{\'vertical-layout\': isSmallScreen, \'horizontal-layout\': !isSmallScreen}">              <p-button label="Speichern" icon="pi pi-save" iconPos="right"                         styleClass="p-button-sm" (click)="saveProject()"                         [disabled]="!isValidTitle || !isValidStart || !isValidEnd                                    || !isValidTeam || !isValidTechStack || !isValidRepositoryUrl                                    || !isValidDescription"></p-button>              <p-button label="Abbrechen" icon="" iconPos="right" styleClass="p-button-sm" (click)="cancel()"></p-button>            </div>          </ng-template></p-dialog></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'LandingpageComponent', 'selector': 'app-landingpage'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StudentProjectDetailComponent', 'selector': 'app-student-project-detail'},{'name': 'StudentProjectsComponent', 'selector': 'app-student-projects'},{'name': 'ToolbarComponent', 'selector': 'app-toolbar'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'StudentProjectDetailComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'StudentProjectDetailComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
