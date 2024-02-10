@@ -27,6 +27,8 @@ git clone https://github.com/noahjosua/ProjektB_FRONTEND
 Projekt öffnen in IDE, z.B. Visual Studio Code
 cd ProjektB_FRONTEND
 npm install
+
+gewünschte baseURL in dem src/environments/environment.ts File hinterlegen 
 ```
 
 ### Verwendung
