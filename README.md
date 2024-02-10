@@ -28,7 +28,7 @@ Projekt öffnen in IDE, z.B. Visual Studio Code
 cd ProjektB_FRONTEND
 npm install
 
-gewünschte baseURL in dem src/environments/environment.ts File hinterlegen 
+gewünschte baseURL in dem src/environments/environment.ts File hinterlegen. Die hier angegebene baseURL muss mit der, im Backend .env File hinterlegten, baseURL übereinstimmen! 
 ```
 
 ### Verwendung
