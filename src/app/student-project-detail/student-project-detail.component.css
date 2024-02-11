@@ -89,6 +89,7 @@ h1 {
     margin-right: 2rem;
     margin-left: 2rem;
     margin-bottom: 5rem;
+    padding: 20px; /* Set padding to 10px on all sides */
 }
 
 /* Style for links */
@@ -116,4 +117,9 @@ a, a:visited {
     flex-direction: row;
     justify-content: flex-end;
     gap: 15px; 
+}
+
+/* Custom styling to hide the Quill editor toolbar */
+::ng-deep .p-editor-toolbar {
+    display: none;
 }

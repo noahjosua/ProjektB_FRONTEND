@@ -54,6 +54,15 @@ export class StudentProjectDetailComponent implements OnInit {
   isValidRepositoryUrl: boolean = true;
   isValidDescription: boolean = true;
 
+    // Quill editor modules for description
+    quillModules = {
+      toolbar: [
+        ['bold', 'italic', 'underline', 'strike'],        // basic formatting
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }],   // lists
+        ['link']                                         // link 
+      ]
+    };
+
   constructor(
     public route: ActivatedRoute, 
     public projectService: ProjectService, 
@@ -240,7 +249,7 @@ export class StudentProjectDetailComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-   // this.authListenerSub.unsubscribe(); took it out for deployment becasue it was causing an error I couldnt fix
-   // this.showMessageToUserSub.unsubscribe(); took it out for deployment becasue it was causing an error I couldnt fix
+    this.authListenerSub.unsubscribe(); 
+    this.showMessageToUserSub.unsubscribe(); 
   }
 }

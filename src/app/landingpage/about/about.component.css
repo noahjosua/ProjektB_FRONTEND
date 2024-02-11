@@ -10,4 +10,5 @@ div {
     margin-right: 2rem; /* Set right margin */
     margin-left: 2rem; /* Set left margin */
     margin-bottom: 100px; /* Set bottom margin */
+    padding: 20px; /* Set padding to 10px on all sides */
 }

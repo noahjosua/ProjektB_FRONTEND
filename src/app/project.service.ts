@@ -99,10 +99,7 @@ export class ProjectService {
             .subscribe((responseData) => {
                 this.showMessageToUserSubject.next({ severity: 'success', summary: 'Erfolg', detail: 'Projekt geändert.' });
                 setTimeout(() => {
-                    // ugly workaround to refresh the page after editing a project
-                    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-                      this.router.navigate([this.router.url]);
-                    });
+                    window.location.reload();  
                   }, 3000);
                 project.id = responseData.project.id; 
                 project.imagesPaths = responseData.project.imagesPaths;

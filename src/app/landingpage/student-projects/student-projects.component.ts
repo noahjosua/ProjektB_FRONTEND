@@ -198,7 +198,7 @@ export class StudentProjectsComponent implements OnInit, OnDestroy {
 
   // OnDestroy lifecycle hook to unsubscribe from subscriptions
   ngOnDestroy(): void {
-    // this.projectsSub.unsubscribe(); took it out for deployment becasue it was causing an error I couldnt fix
-    // this.authListenerSub.unsubscribe(); took it out for deployment becasue it was causing an error I couldnt fix
+    this.projectsSub.unsubscribe(); 
+    this.authListenerSub.unsubscribe(); 
   }
 }

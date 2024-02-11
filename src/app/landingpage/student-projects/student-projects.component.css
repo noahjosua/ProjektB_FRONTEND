@@ -23,6 +23,7 @@
 
 /* Style for individual projects */
 .project {
+    flex: 1; /* This will make the projects take equal width */
     margin-left: 2rem; 
     margin-right: 4rem;
     margin-bottom: 2rem;
