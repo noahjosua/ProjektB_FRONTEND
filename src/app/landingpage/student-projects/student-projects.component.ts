@@ -96,7 +96,7 @@ export class StudentProjectsComponent implements OnInit, OnDestroy {
 
   validateDate() {
     this.isValidStart = this.newProject.start <= new Date() && this.newProject.start <= this.newProject.end;
-    this.isValidEnd = this.newProject.end <= new Date() && this.newProject.end >= this.newProject.start;
+    this.isValidEnd = this.newProject.end >= this.newProject.start;
   }
 
   validateTeam() {
@@ -143,8 +143,8 @@ export class StudentProjectsComponent implements OnInit, OnDestroy {
   // Method to shorten strings for display
   shortenString(input: string) {
     let inputToDisplay = input.replace(/<[^>]*>/g, '');
-    if(inputToDisplay.length > 10) {
-      return inputToDisplay.substring(0, 10) + '...';
+    if(inputToDisplay.length > 100) {
+      return inputToDisplay.substring(0, 100) + '...';
     } else {
       return inputToDisplay;
     }

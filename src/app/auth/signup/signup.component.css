@@ -11,10 +11,22 @@
     text-align: center;
 }
 
-/* Style for form groups, align items, and add margin at the bottom */
+/* Style for form groups, align items, and add margin at the top */
 .form-group {
     display: flex;
     align-items: center;
+    margin-top: 1rem;
+}
+
+.form-group ul li {
+    text-align: left;
+  }
+
+/* Style for form groups, align items, and add margin at the bottom */
+.form-group-checkbox {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
@@ -31,4 +43,6 @@
 /* Set maximum width for error messages */
 .error-message {
     max-width: 230px;
+    color: red;
+    text-align: center; /* Center the error message text */
 }

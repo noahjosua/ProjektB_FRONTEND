@@ -7,7 +7,7 @@
   <div class="projects-container">
     <!-- Project Cards (Looping through projects) -->
     <div class="project" *ngFor="let project of projects">
-        <h3>{{shortenString(project.title)}}</h3>
+        <h3>{{project.title}}</h3>
         <p>{{shortenString(project.description)}}</p>
         <p-button label="Mehr..." styleClass="p-button-sm" [routerLink]="['/details', project.id]"></p-button> 
     </div>

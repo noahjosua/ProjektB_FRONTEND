@@ -61,8 +61,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
   // Method to shorten a given string
   shortenString(input: string) {
     let inputToDisplay = input.replace(/<[^>]*>/g, '');
-    if(inputToDisplay.length > 10) {
-      return inputToDisplay.substring(0, 10) + '...';
+    if(inputToDisplay.length > 100) {
+      return inputToDisplay.substring(0, 100) + '...';
     } else {
       return inputToDisplay;
     }

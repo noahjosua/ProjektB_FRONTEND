@@ -20,8 +20,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   private passwordPattern = '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})';
 
   // Properties for storing error messages
-  emailError = 'Bitte geben Sie eine gültige HAW E-Mail-Adresse ein.';
-  passwordError = 'Mind. 1 Großbuchstabe, 1 Kleinbuchstabe, 1 Zahl und 8 Zeichen lang.';
+  emailError = 'Keine gültige HAW E-Mail Adresse!';
   passwordRepeatError = 'Die Passwörter stimmen nicht überein.';
 
   // Properties for storing email, password, repeated password and isAdmin status
@@ -42,7 +41,6 @@ export class SignupComponent implements OnInit, OnDestroy {
 
   // Flags indicating whether to display error messages for email, password, and repeat password
   showEmailError = false;
-  showPasswordError = false;
   showRepeatPasswordError = false;
 
   constructor(public authService: AuthService, private messageService: MessageService) { }
@@ -77,12 +75,10 @@ export class SignupComponent implements OnInit, OnDestroy {
     if (this.password === '' || this.password === null || this.password === undefined || !this.password.match(this.passwordPattern)) {
       this.passwordVal = 'ng-invalid ng-dirty';
       this.isValidPassword = false;
-      this.showPasswordError = true;
       return false;
     }
     this.passwordVal = '';
     this.isValidPassword = true;
-    this.showPasswordError = false;
     return true;
   }
 
@@ -130,7 +126,6 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.isValidPassword = false;
     this.isValidRepeatPassword = false;
     this.showEmailError = false;
-    this.showPasswordError = false;
     this.showRepeatPasswordError = false;
   }
 

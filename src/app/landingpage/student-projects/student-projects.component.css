@@ -24,9 +24,9 @@
 /* Style for individual projects */
 .project {
     flex: 1; /* This will make the projects take equal width */
-    margin-left: 2rem; 
-    margin-right: 4rem;
-    margin-bottom: 2rem;
+    margin-left: 8rem; 
+    margin-right: 16rem;
+    margin-bottom: 8rem;
 }
 
 .project h3 {

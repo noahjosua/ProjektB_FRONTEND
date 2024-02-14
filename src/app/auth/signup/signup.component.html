@@ -7,16 +7,41 @@
         <div class="form-group">
             <input id="email" autocomplete="off" type="email" pInputText placeholder="Email" [class]="emailVal" [(ngModel)]="email" (input)="validateEmail()">
         </div>
-        <div *ngIf="showEmailError" class="error-message">{{emailError}}</div>
-        <div class="form-group">
-            <p-password [toggleMask]="true" placeholder="Passwort" [class]="passwordVal" [(ngModel)]="password" (onBlur)="validatePassword()" promptLabel="Wähle ein Passwort."></p-password>
+        <div *ngIf="showEmailError" class="error-message">
+            <small>{{emailError}}</small>
         </div>
-        <div *ngIf="showPasswordError" class="error-message">{{passwordError}}</div>
+
         <div class="form-group">
-            <p-password [toggleMask]="true" placeholder="Passwort" [class]="repeatPasswordVal" [(ngModel)]="repeatPassword" (onBlur)="validateRepeatPassword()" promptLabel="Wähle ein Passwort."></p-password>
+            <p-password [toggleMask]="true" 
+                        placeholder="Passwort" 
+                        [class]="passwordVal" 
+                        [(ngModel)]="password" 
+                        (onBlur)="validatePassword()"
+                        promptLabel=" ">
+                        <ng-template pTemplate="header">
+                            <h6>Wähle ein Passwort.</h6>
+                        </ng-template>
+                        <ng-template pTemplate="footer">
+                            <p-divider></p-divider>
+                            <p class="mt-2">Anforderungen</p>
+                            <ul>
+                                <li>mind. 1 Großbuchstabe</li>
+                                <li>mind. 1 Kleinbuchstabe</li>
+                                <li>mind. 1 Zahl</li>
+                                <li>mind. 8 Zeichen</li>
+                            </ul>
+                        </ng-template>
+            </p-password>
         </div>
-        <div *ngIf="showRepeatPasswordError" class="error-message">{{passwordRepeatError}}</div>
+
         <div class="form-group">
+            <p-password [toggleMask]="true" placeholder="Passwort" [class]="repeatPasswordVal" [(ngModel)]="repeatPassword" (onBlur)="validateRepeatPassword()" promptLabel="Wiederhole das Passwort."></p-password>
+        </div>
+        <div *ngIf="showRepeatPasswordError" class="error-message">
+            <small>{{passwordRepeatError}}</small>
+        </div>
+
+        <div class="form-group-checkbox">
             <p-checkbox [(ngModel)]="isAdmin" label="Administrator*in" [binary]="true"></p-checkbox>
         </div> 
         <div class="button-container">

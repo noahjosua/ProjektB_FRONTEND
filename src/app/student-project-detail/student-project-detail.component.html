@@ -9,8 +9,8 @@
                 iconPos="right" 
                 styleClass="p-button-sm" 
                 (onClick)="onDelete(project?.id)"></p-button> 
-      <!-- Button to edit project (visible for authenticated users who created the project) -->
-      <p-button *ngIf="isAuthenticated && (userId == project?.creator)" 
+      <!-- Button to edit project (visible for authenticated users who created the project and for admins even if they are not the creator) -->
+      <p-button *ngIf="isAuthenticated && (userId == project?.creator || isAdmin == true)" 
                 label="Bearbeiten" 
                 icon="pi pi-pencil" 
                 iconPos="right" 

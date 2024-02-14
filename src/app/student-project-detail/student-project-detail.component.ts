@@ -172,7 +172,7 @@ export class StudentProjectDetailComponent implements OnInit {
 
   validateDate() {
     this.isValidStart = this.updatedProject.start <= new Date() && this.updatedProject.start <= this.updatedProject.end;
-    this.isValidEnd = this.updatedProject.end <= new Date() && this.updatedProject.end >= this.updatedProject.start;
+    this.isValidEnd = this.updatedProject.end >= this.updatedProject.start;
   }
 
   validateTeam() {

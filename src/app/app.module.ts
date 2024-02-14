@@ -19,6 +19,7 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { EditorModule } from 'primeng/editor';
+import { DividerModule } from 'primeng/divider';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './landingpage/about/about.component';
@@ -67,7 +68,8 @@ import { ProfileComponent } from './profile/profile.component';
     ScrollTopModule,
     ScrollPanelModule,
     ToastModule,
-    EditorModule
+    EditorModule,
+    DividerModule
   ],
   providers: [
     MessageService, 
