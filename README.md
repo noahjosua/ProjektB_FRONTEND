@@ -1,11 +1,10 @@
 # HAW Hamburg: Studierendenprojekte 
 
 Willkommen im Frontend Repository! 
-Diese Anwendung wurde mit Node.js und Angular entwickelt und ermöglicht die Sammlung und Verwaltung von studentischen Projekten. 
+Diese Anwendung wurde Angular und PrimeNG entwickelt und ermöglicht die Sammlung und Verwaltung von studentischen Projekten. 
 
 ## Inhaltsverzeichnis
 - [Features](#features)
-- [Technologien](#technologien)
 - [Installation](#installation)
 - [Verwendung](#verwendung)
 - [Hinweise](#hinweise)
@@ -15,11 +14,7 @@ Hier sind die wichtigsten Funktionen und Aspekte der Anwendung:
 ### Features
 - *Gäste*: Als Gast kannst du alle, in der zuvor konfigurierten, Datenbank gespeicherten Projekte ansehen. (Anleitung zur Konfiguration der Datenbank im [Backend Repository](https://github.com/noahjosua/ProjektB_BACKEND))
 - *Benutzer ohne Admin-Rechte*: Als Benutzer ohne Admin-Rechte kannst du neue Projekte anlegen sowie eigene Projekte bearbeiten und löschen.
-- *Benutzer mit Admin-Rechten*: Als Benutzer mit Admin-Rechten kannst du alles, was ein Benutzer ohne Admin-Rechte auch kann. Zusätzlich kannst du alle Projekte (nicht nur eigene) löschen sowie neue Benutzer registrieren. 
-
-### Technologien
-- Angular
-- PrimeNG
+- *Benutzer mit Admin-Rechten*: Als Benutzer mit Admin-Rechten kannst du alles, was ein Benutzer ohne Admin-Rechte auch kann. Zusätzlich kannst du alle Projekte (nicht nur eigene) löschen und bearbeiten sowie neue Benutzer registrieren. 
 
 ### Installation
 ```bash
